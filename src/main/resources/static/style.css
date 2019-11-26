@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    width: 100%;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}
+
+table.table-list {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+table.table-list th {
+    background-color: aliceblue;
+    padding: 5px;
+}
+
+table.table-list td {
+    padding: 5px;
+    border-bottom: 1px solid #444444;
+}
+
+nav {
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+.form-part {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    padding: 5px 25px 15px;
+}
+
+.form-part h1 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.form-title {
+    min-width: 75px;
+    font-size: 15px;
+    font-weight: lighter;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.form-field {
+    width: 100%;
+}
+
+.form-field input {
+    width: 100%;
+    margin-left: -10px;
+}
+
+.form-buttons input {
+    width: 50%;
+    margin: 5px 0;
+}

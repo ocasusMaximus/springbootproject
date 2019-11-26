@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+<body>
+<nav class="navigation">
+    <ul>
+        <li><a href="/">Seznam rezervací</a></li>
+        <li><a href="/ticket">Nová rezervace</a></li>
+    </ul>
+</nav>
+
+
+<div class="form-part">
+    <h1>Nová rezervace</h1>
+        <form action="#" th:action="@{/tickets}" th:object="${tickets}" method="post">
+            <table class="form-table">
+                <tbody>
+                <tr>
+                    <td class="form-title">Čas:</td>
+                    <td class="form-field"><input type="text" th:field="*{date}"/></td>
+                </tr>
+                <tr>
+                    <td class="form-title">Film:</td>
+                    <td class="form-field"><input type="text" th:field="*{movie}"/></td>
+                </tr>
+                <tr>
+                <tr>
+                    <td class="form-title">Jazyk:</td>
+                    <td class="form-field"><input type="text" th:field="*{language}"/></td>
+                </tr>
+                <tr>
+
+                    <td colspan="2" class="form-buttons"><input type="submit" value="Odeslat"/><input type="reset"
+                                                                                                      value="Reset"/></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+</div>
+</body>
+</html>
