@@ -21,7 +21,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public Ticket loadTicketById(int id) {
-        return ticketRepository.findOne(id);
+        return ticketRepository.getOne(id);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public void removeTicketById(int id) {
-        ticketRepository.delete(id);
+        ticketRepository.deleteById(id);
     }
 
     @Override

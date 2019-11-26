@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 //import java.util.concurrent.atomic.AtomicLong;
 
@@ -59,7 +60,8 @@ public class TicketController {
         }
         throw new IllegalArgumentException();
     }
-    @PostMapping("/tickets/{id}")
+
+    @PostMapping("/tickets")
     public Ticket editOneTicket(@PathVariable("id") int ticketId, @RequestBody Ticket newTicket){
         for(Ticket ticket : tickets){
             if(ticket.getId() == ticketId ){
@@ -70,7 +72,7 @@ public class TicketController {
         }
         throw new IllegalArgumentException();
     }
-    @PostMapping(value = "/source")
+    @PostMapping("/source")
     public String addNewSource(@ModelAttribute Ticket ticket, Model model) {
         ticketService.createTicket(ticket);
         model.addAttribute("tickets", ticketService.loadAllTickets());

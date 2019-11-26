@@ -15,7 +15,23 @@
 <div>
 <h1>Toto je stranka pro zobrazeni seznamu rezervaci</h1>
 </div>
+<table class="table-list">
+    <thead>
+    <th>Název</th>
+    <th>Zdroj</th>
+    </thead>
+    <tbody>
+    <!--  <tr th:if="${tickets.empty}">
+         <td colspan="3">Nebyly nalezeny žádné záznamy.</td>
+     </tr> -->
+     <tr th:each="ticket : ${tickets}">
+         <td><span th:text="${ticket.getName()}"> Název </span></td>
+         <td><span th:text="${ticket.getDate()}"> Datum </span></td>
+         <td><span th:text="${ticket.getLanguage()}"> Jazyk </span></td>
+     </tr>
+     </tbody>
+ </table>
 
-</div>
-</body>
-</html>
+ </div>
+ </body>
+ </html>
