@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class TicketServiceImpl implements TicketService {
 
-//    @Autowired
+    @Autowired
     private TicketRepository ticketRepository;
 
     @Override

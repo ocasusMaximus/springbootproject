@@ -15,8 +15,7 @@ import java.util.List;
 @Controller
 public class TicketController {
 
-    private List<Ticket> tickets = new ArrayList<Ticket>();
-//    private AtomicLong nextId = new AtomicLong();
+
     private final TicketService ticketService;
 
     @Autowired
@@ -24,10 +23,7 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 
-    @GetMapping("/hello")
-    public String getHelloMessage(){
-        return "HelloWorld";
-    }
+
 
 //    @PostMapping("/tickets")
 //    public Ticket createNewTicket(@RequestBody Ticket ticket){
@@ -38,11 +34,11 @@ public class TicketController {
 //        return ticket;
 //    }
 
-    @GetMapping("/tickets")
-    public List<Ticket> getAllTickets(){
-
-        return tickets;
-    }
+//    @GetMapping("/tickets")
+//    public List<Ticket> getAllTickets(){
+//
+//        return tickets;
+//    }
 
     @GetMapping("/ticket")
     public String getAddTicket(Model model){
@@ -50,37 +46,37 @@ public class TicketController {
         return "addTicket";
     }
 
-    @GetMapping("/tickets/{id}")
-    public Ticket getOneTicket(@PathVariable("id") long ticketId){
+//    @GetMapping("/tickets/{id}")
+//    public Ticket getOneTicket(@PathVariable("id") long ticketId){
+//
+//        for(Ticket ticket : tickets){
+//            if(ticket.getId() == ticketId ){
+//                return ticket;
+//            }
+//        }
+//        throw new IllegalArgumentException();
+//    }
 
-        for(Ticket ticket : tickets){
-            if(ticket.getId() == ticketId ){
-                return ticket;
-            }
-        }
-        throw new IllegalArgumentException();
-    }
-
-    @PostMapping("/tickets")
-    public Ticket editOneTicket(@PathVariable("id") int ticketId, @RequestBody Ticket newTicket){
-        for(Ticket ticket : tickets){
-            if(ticket.getId() == ticketId ){
-                tickets.remove(ticket);
-                newTicket.setId(ticketId);
-                return ticket;
-            }
-        }
-        throw new IllegalArgumentException();
-    }
-    @PostMapping("/source")
-    public String addNewSource(@ModelAttribute Ticket ticket, Model model) {
+//    @PostMapping("/tickets")
+//    public Ticket editOneTicket(@PathVariable("id") int ticketId, @RequestBody Ticket newTicket){
+//        for(Ticket ticket : tickets){
+//            if(ticket.getId() == ticketId ){
+//                tickets.remove(ticket);
+//                newTicket.setId(ticketId);
+//                return ticket;
+//            }
+//        }
+//        throw new IllegalArgumentException();
+//    }
+    @PostMapping("/ticket")
+    public String addNewTicket(@ModelAttribute Ticket ticket, Model model) {
         ticketService.createTicket(ticket);
         model.addAttribute("tickets", ticketService.loadAllTickets());
         return "tickets";
     }
     @RequestMapping({"/",""})
-    public String showTicketPortal(){
-//        ticketService.loadAllTickets();
+    public String showTicketPortal(Model model){
+        model.addAttribute("tickets", ticketService.loadAllTickets());
         return "listOfTicket";
     }
 }
