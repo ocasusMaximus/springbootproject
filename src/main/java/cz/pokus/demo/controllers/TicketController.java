@@ -45,7 +45,10 @@ public class TicketController {
         model.addAttribute("tickets", new Ticket());
         return "addTicket";
     }
-
+    @PutMapping("/error")
+    public String errorMessage(){
+        return "Your request did not come through!";
+    }
 //    @GetMapping("/tickets/{id}")
 //    public Ticket getOneTicket(@PathVariable("id") long ticketId){
 //
@@ -71,8 +74,14 @@ public class TicketController {
     @PostMapping("/ticket")
     public String addNewTicket(@ModelAttribute Ticket ticket, Model model) {
         ticketService.createTicket(ticket);
-        model.addAttribute("tickets", ticketService.loadAllTickets());
-        return "tickets";
+        model.addAttribute("listOfTicket", ticketService.loadAllTickets());
+        return "listOfTicket";
+    }
+    @GetMapping("/tickets")
+    public String getTickets(Model model){
+        model.addAttribute("ticket",new Ticket());
+        return "addTicket";
+
     }
     @RequestMapping({"/",""})
     public String showTicketPortal(Model model){

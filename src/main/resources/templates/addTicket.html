@@ -16,21 +16,17 @@
 
 <div class="form-part">
     <h1>Nová rezervace</h1>
-        <form action="#" th:action="@{/tickets}" th:object="${tickets}" method="post">
+        <form action="#" th:action="@{/ticket}" th:object="${tickets}" method="post">
             <table class="form-table">
                 <tbody>
                 <tr>
-                    <td class="form-title">Čas:</td>
-                    <td class="form-field"><input type="text" th:field="*{date}"/></td>
-                </tr>
-                <tr>
                     <td class="form-title">Film:</td>
-                    <td class="form-field"><input type="text" th:field="*{movie}"/></td>
+                    <td class="form-field"><input type="text" th:field="*{movie}" required/></td>
                 </tr>
                 <tr>
                 <tr>
                     <td class="form-title">Jazyk:</td>
-                    <td class="form-field"><input type="text" th:field="*{language}"/></td>
+                    <td class="form-field"><input type="text" th:field="*{language}" required/></td>
                 </tr>
                 <tr>
 

@@ -26,7 +26,6 @@
      </tr> -->
      <tr th:each="ticket : ${tickets}">
          <td><span th:text="${ticket.getName()}"> Název </span></td>
-         <td><span th:text="${ticket.getDate()}"> Datum </span></td>
          <td><span th:text="${ticket.getLanguage()}"> Jazyk </span></td>
      </tr>
      </tbody>
