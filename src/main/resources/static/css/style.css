@@ -29,7 +29,7 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #1ABF4C;
 }
 
 nav li {
@@ -83,4 +83,10 @@ nav li a:hover {
     width: 50%;
     margin: 5px 0;
 }
-
+.navigation-bar ul {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  display:inline-block;
+  vertical-align:top;
+}

@@ -6,11 +6,21 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<nav class="navigation">
+<!--<nav class="navigation">
     <ul>
+        <li><a href="/"> <img class="logo" src="../static/images/Springlogo.png" th:src="@{images/Springlogo.png}"alt="Spring logo" ></a></li>
         <li><a href="/">Seznam rezervací</a></li>
         <li><a href="/ticket">Nová rezervace</a></li>
     </ul>
+</nav>-->
+<nav class="navigation-bar">
+    <div id="navigation-container">
+        <img class="logo" src="../static/images/Springlogo.png" th:src="@{images/Springlogo.png}"alt="Spring logo" >
+        <ul>
+            <li><a href="/">Seznam rezervací</a></li>
+            <li><a href="/ticket">Nová rezervace</a></li>
+        </ul>
+    </div>
 </nav>
 <div>
 <h1>Toto je stranka pro zobrazeni seznamu rezervaci</h1>
@@ -18,13 +28,13 @@
 <table class="table-list">
     <thead>
     <th>Název</th>
-    <th>Zdroj</th>
+    <th>Jazyk</th>
     </thead>
     <tbody>
     <!--  <tr th:if="${tickets.empty}">
          <td colspan="3">Nebyly nalezeny žádné záznamy.</td>
      </tr> -->
-     <tr th:each="ticket : ${tickets}">
+     <tr th:each=" ticket : ${tickets}">
          <td><span th:text="${ticket.getName()}"> Název </span></td>
          <td><span th:text="${ticket.getLanguage()}"> Jazyk </span></td>
      </tr>
