@@ -94,9 +94,8 @@ nav li a img {
 span{
 color:white;
 }
-body{
 
-background-image:('../images/spring-by-pivotal.png')
+.ticketProps{
+    color: black;
 }
-
 

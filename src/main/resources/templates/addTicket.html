@@ -20,7 +20,7 @@
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="/" class="nav-link">Seznam rezervací</a></li>
-                <li class="nav-item"><a href="/ticket" class="nav-link">Nová rezervace</a></li>
+                <li class="nav-item"><a href="/tickets" class="nav-link">Nová rezervace</a></li>
             </ul>
         </div>
     </div>
@@ -29,7 +29,7 @@
 
 <div class="form-part">
     <h1>Nová rezervace</h1>
-        <form action="#" th:action="@{/ticket}" th:object="${tickets}" method="post">
+        <form action="#" th:action="@{/ticket}" th:object="${ticket}" method="post">
             <table class="form-table">
                 <tbody>
                 <tr>

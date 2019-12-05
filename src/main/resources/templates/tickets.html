@@ -21,7 +21,7 @@
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="/" class="nav-link">Seznam rezervací</a></li>
-                <li class="nav-item"><a href="/ticket" class="nav-link">Nová rezervace</a></li>
+                <li class="nav-item"><a href="/tickets" class="nav-link">Nová rezervace</a></li>
             </ul>
         </div>
     </div>
@@ -49,10 +49,12 @@
          <td colspan="3">Nebyly nalezeny žádné záznamy.</td>
      </tr> -->
      <tr th:each=" ticket : ${tickets}">
-         <td><span th:text="${ticket.getName()}"> Název </span></td>
-         <td><span th:text="${ticket.getLanguage()}"> Jazyk </span></td>
+         <td><span class="ticketProps" th:text="${ticket.getMovie()}"> Název </span></td>
+         <td><span class="ticketProps"th:text="${ticket.getLanguage()}"> Jazyk </span></td>
      </tr>
+
      </tbody>
+    <td colspan="1" class="form-buttons"><input type="submit" value="Smazat Vse"/></td>
  </table>
 </div>
 

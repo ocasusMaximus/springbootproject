@@ -30,8 +30,8 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public Ticket updateTicket(Ticket rssSource) {
-        return null;
+    public Ticket updateTicket(Ticket ticket) {
+        return ticketRepository.save(ticket);
     }
 
     @Override

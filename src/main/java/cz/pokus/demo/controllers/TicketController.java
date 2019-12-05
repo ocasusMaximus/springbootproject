@@ -6,10 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 //import java.util.concurrent.atomic.AtomicLong;
 
 @Controller
@@ -40,15 +36,7 @@ public class TicketController {
 //        return tickets;
 //    }
 
-    @GetMapping("/ticket")
-    public String getAddTicket(Model model){
-        model.addAttribute("tickets", new Ticket());
-        return "addTicket";
-    }
-    @PutMapping("/error")
-    public String errorMessage(){
-        return "Your request did not come through!";
-    }
+
 //    @GetMapping("/tickets/{id}")
 //    public Ticket getOneTicket(@PathVariable("id") long ticketId){
 //
@@ -71,21 +59,23 @@ public class TicketController {
 //        }
 //        throw new IllegalArgumentException();
 //    }
-    @PostMapping("/ticket")
+
+    @GetMapping(value = "/")
+    public String index(Model model) {
+        model.addAttribute("tickets", ticketService.loadAllTickets());
+        return "tickets";
+    }
+    @PostMapping(value = "/ticket")
     public String addNewTicket(@ModelAttribute Ticket ticket, Model model) {
         ticketService.createTicket(ticket);
-        model.addAttribute("listOfTicket", ticketService.loadAllTickets());
-        return "listOfTicket";
+        model.addAttribute("tickets", ticketService.loadAllTickets());
+        return "tickets";
     }
-    @GetMapping("/tickets")
+    @GetMapping(value = "/tickets")
     public String getTickets(Model model){
         model.addAttribute("ticket",new Ticket());
         return "addTicket";
 
     }
-    @RequestMapping({"/",""})
-    public String showTicketPortal(Model model){
-        model.addAttribute("tickets", ticketService.loadAllTickets());
-        return "listOfTicket";
-    }
-}
+
+        }
