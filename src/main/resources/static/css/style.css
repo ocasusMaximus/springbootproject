@@ -21,7 +21,7 @@ table.table-list td {
 }
 
 nav {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 nav ul {
@@ -29,7 +29,7 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #1ABF4C;
+    background-color: #19AD15;
 }
 
 nav li {
@@ -83,10 +83,8 @@ nav li a:hover {
     width: 50%;
     margin: 5px 0;
 }
-.navigation-bar ul {
-  padding: 0px;
-  margin: 0px;
-  text-align: center;
-  display:inline-block;
-  vertical-align:top;
+nav li img{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
 }
