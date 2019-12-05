@@ -3,22 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg py-3 shadow-sm">
+    <div class="container">
+        <a href="#" class="navbar-brand">
+            <!-- Logo Image -->
+            <img   src="../static/images/icon-spring-framework.svg" th:src="@{images/icon-spring-framework.svg}" width="100" height="40" alt="">
+            <span class="text-uppercase font-weight-bold">Spring Framework</span>
+        </a>
+
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="/" class="nav-link">Seznam rezervací</a></li>
+                <li class="nav-item"><a href="/ticket" class="nav-link">Nová rezervace</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--
 <nav class="navigation">
     <ul>
         <li>
-       <!-- <a href="#">-->
+        <a href="#">
             <img   src="../static/images/icon-spring-framework.svg" th:src="@{images/icon-spring-framework.svg}" width="100" height="40" alt="">
-        <!--</a>--></li>
+        </a></li>
         <li><a href="/">Seznam rezervací</a></li>
         <li><a href="/ticket">Nová rezervace</a></li>
     </ul>
 </nav>
+-->
 <div>
-<h1>Toto je stranka pro zobrazeni seznamu rezervaci</h1>
-</div>
 <table class="table-list">
     <thead>
     <th>Název</th>
@@ -34,7 +54,7 @@
      </tr>
      </tbody>
  </table>
+</div>
 
- </div>
  </body>
  </html>

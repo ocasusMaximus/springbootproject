@@ -22,6 +22,7 @@ table.table-list td {
 
 nav {
     margin-bottom: 0px;
+     background-color: #19AD15;
 }
 
 nav ul {
@@ -30,22 +31,26 @@ nav ul {
     padding: 0;
     overflow: hidden;
     background-color: #19AD15;
+
 }
 
 nav li {
     float: left;
+
 }
 
 nav li a {
-    display: block;
+    display: inline-block;
     color: white;
     text-align: center;
+
     padding: 14px 16px;
     text-decoration: none;
 }
 
 nav li a:hover {
-    background-color: #111;
+    background-color: #189D1C;
+    color: white;
 }
 
 .form-part {
@@ -83,8 +88,15 @@ nav li a:hover {
     width: 50%;
     margin: 5px 0;
 }
-nav li img{
-    padding: 0px;
-    margin: 0px;
-    border: 0px;
+nav li a img {
+    vertical-align:middle;
 }
+span{
+color:white;
+}
+body{
+
+background-image:('../images/spring-by-pivotal.png')
+}
+
+
