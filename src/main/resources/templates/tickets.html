@@ -43,6 +43,8 @@
     <thead>
     <th>Název</th>
     <th>Jazyk</th>
+    <th>Smazání</th>
+    <th>Upravení</th>
     </thead>
     <tbody>
     <!--  <tr th:if="${tickets.empty}">
@@ -51,12 +53,13 @@
      <tr th:each=" ticket : ${tickets}">
          <td><span class="ticketProps" th:text="${ticket.getMovie()}"> Název </span></td>
          <td><span class="ticketProps"th:text="${ticket.getLanguage()}"> Jazyk </span></td>
+         <td ><a class="button_a" href="/">Smazat</a></td>
+         <td ><a class="button_a" href="/">Upravit</a></td>
      </tr>
-
      </tbody>
-    <td colspan="1" class="form-buttons"><input type="submit" value="Smazat Vse"/></td>
+  <!--  <td colspan="1" class="form-buttons"><input type="submit" value="Smazat Vse"/></td>-->
  </table>
 </div>
-
+<div id="deleteAllButton" ><input type="submit" value="Smazat vse" class="button_a"></input></div>
  </body>
  </html>
