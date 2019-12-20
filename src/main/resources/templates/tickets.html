@@ -53,8 +53,8 @@
      <tr th:each=" ticket : ${tickets}">
          <td><span class="ticketProps" th:text="${ticket.getMovie()}"> Název </span></td>
          <td><span class="ticketProps"th:text="${ticket.getLanguage()}"> Jazyk </span></td>
-         <td ><a class="button_a" href="/">Smazat</a></td>
-         <td ><a class="button_a" href="/">Upravit</a></td>
+         <td ><button class="button_a" >Smazat</button></td>
+         <td ><button class="button_a" >Upravit</button></td>
      </tr>
      </tbody>
   <!--  <td colspan="1" class="form-buttons"><input type="submit" value="Smazat Vse"/></td>-->
