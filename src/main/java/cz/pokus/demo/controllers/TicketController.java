@@ -29,13 +29,19 @@ public class TicketController {
     public String addNewTicket(@ModelAttribute Ticket ticket, Model model) {
         ticketService.createTicket(ticket);
         model.addAttribute("tickets", ticketService.loadAllTickets());
-        return "tickets";
+        return "redirect:/";
     }
-    @PostMapping(value = "/deleteTicket")
+    @PostMapping(value = "/ticketDelete")
     public String deleteTicket(@ModelAttribute Ticket ticket, Model model) {
         ticketService.removeTicket(ticket);
         model.addAttribute("tickets", ticketService.loadAllTickets());
-        return "tickets";
+        return "redirect:/";
+    }
+    @PostMapping(value = "/ticketDeleteAll")
+    public String deleteAllTickets(@ModelAttribute Ticket ticket, Model model) {
+        ticketService.deleteAllTickets();
+        model.addAttribute("tickets", ticketService.loadAllTickets());
+        return "redirect:/";
     }
     @GetMapping(value = "/tickets")
     public String getTickets(Model model){
@@ -44,4 +50,4 @@ public class TicketController {
 
     }
 
-        }
+}

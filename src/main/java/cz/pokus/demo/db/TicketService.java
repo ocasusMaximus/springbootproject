@@ -19,5 +19,7 @@ public interface TicketService {
 
     void removeTicket(Ticket ticket);
 
+    void deleteAllTickets();
+
     List<Ticket> loadAllTickets();
 }

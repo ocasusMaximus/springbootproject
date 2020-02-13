@@ -44,28 +44,35 @@
     <th>Název</th>
     <th>Jazyk</th>
     <th>Smazání</th>
-    <th>Upravení</th>
+    <th>Změna</th>
     </thead>
     <tbody>
     <!--  <tr th:if="${tickets.empty}">
          <td colspan="3">Nebyly nalezeny žádné záznamy.</td>
      </tr> -->
      <tr th:each=" ticket : ${tickets}">
+
          <td><span class="ticketProps" th:text="${ticket.getMovie()}"> Název </span></td>
          <td><span class="ticketProps"th:text="${ticket.getLanguage()}"> Jazyk </span></td>
-         <form method="post" th:action="@{/ticketDelete}" th:object="${tickets}">
+         <form method="post" th:action="@{/ticketDelete}" th:object="${ticket}">
+             <input name="id" th:value="${ticket.getId()}" type="hidden"/>
              <input name="movie" th:value="${ticket.getMovie()}" type="hidden">
              <input name="language" th:value="${ticket.getLanguage()}" type="hidden">
              <td ><button type="submit" class="button_a" >Smazat</button></td>
          </form>
 
 
-         <td ><button class="button_a" >Upravit</button></td>
+         <td ><button class="button_a" >Změnit</button></td>
      </tr>
      </tbody>
   <!--  <td colspan="1" class="form-buttons"><input type="submit" value="Smazat Vse"/></td>-->
  </table>
 </div>
-<div id="deleteAllButton" ><input type="submit" value="Smazat vse" class="button_a"/></div>
+<div id="deleteAllButton" >
+    <form method="post" th:action="@{/ticketDeleteAll}">
+    <button class="button_a" type="submit">Smazat Vse</button>
+    </form>
+</div>
+
  </body>
  </html>

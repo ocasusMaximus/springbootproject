@@ -88,6 +88,9 @@ nav li a:hover {
     width: 100%;
     margin-left: -10px;
 }
+select {
+ width: 100%;
+}
 
 .form-buttons input {
     width: 50%;

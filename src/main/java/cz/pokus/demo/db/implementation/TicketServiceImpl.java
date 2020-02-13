@@ -45,6 +45,10 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
+    public void deleteAllTickets() { ticketRepository.deleteAll();
+    }
+
+    @Override
     public List<Ticket> loadAllTickets() {
         return ticketRepository.findAll();
     }

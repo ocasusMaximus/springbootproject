@@ -34,12 +34,24 @@
                 <tbody>
                 <tr>
                     <td class="form-title">Film:</td>
-                    <td class="form-field"><input type="text" th:field="*{movie}" required/></td>
+                    <td  class="form-field">
+                        <select th:field="*{movie}">
+                        <option value="Star Wars: Pomsta Sithů">Star Wars: Pomsta Sithů</option>
+                        <option value="Avengers Endgame">Avengers Endgame</option>
+                        <option value="Pulp Fiction">Pulp Fiction</option>
+                        <option value="John Wick">John Wick</option>
+                        </select>
+                    </td>
+                   <!-- <td class="form-field"><input type="text" th:field="*{movie}" required/></td>-->
                 </tr>
                 <tr>
                 <tr>
                     <td class="form-title">Jazyk:</td>
-                    <td class="form-field"><input type="text" th:field="*{language}" required/></td>
+                    <td class="form-field">
+                        <select th:field="*{language}">
+                            <option value="Angličtina">Angličtina</option>
+                            <option value="Čeština">Čeština</option>
+                        </select>
                 </tr>
                 <tr>
 
