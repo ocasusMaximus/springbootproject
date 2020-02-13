@@ -53,13 +53,19 @@
      <tr th:each=" ticket : ${tickets}">
          <td><span class="ticketProps" th:text="${ticket.getMovie()}"> Název </span></td>
          <td><span class="ticketProps"th:text="${ticket.getLanguage()}"> Jazyk </span></td>
-         <td ><button class="button_a" >Smazat</button></td>
+         <form method="post" th:action="@{/ticketDelete}" th:object="${tickets}">
+             <input name="movie" th:value="${ticket.getMovie()}" type="hidden">
+             <input name="language" th:value="${ticket.getLanguage()}" type="hidden">
+             <td ><button type="submit" class="button_a" >Smazat</button></td>
+         </form>
+
+
          <td ><button class="button_a" >Upravit</button></td>
      </tr>
      </tbody>
   <!--  <td colspan="1" class="form-buttons"><input type="submit" value="Smazat Vse"/></td>-->
  </table>
 </div>
-<div id="deleteAllButton" ><input type="submit" value="Smazat vse" class="button_a"></input></div>
+<div id="deleteAllButton" ><input type="submit" value="Smazat vse" class="button_a"/></div>
  </body>
  </html>

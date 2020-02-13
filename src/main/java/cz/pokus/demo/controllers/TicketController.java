@@ -31,6 +31,12 @@ public class TicketController {
         model.addAttribute("tickets", ticketService.loadAllTickets());
         return "tickets";
     }
+    @PostMapping(value = "/deleteTicket")
+    public String deleteTicket(@ModelAttribute Ticket ticket, Model model) {
+        ticketService.removeTicket(ticket);
+        model.addAttribute("tickets", ticketService.loadAllTickets());
+        return "tickets";
+    }
     @GetMapping(value = "/tickets")
     public String getTickets(Model model){
         model.addAttribute("ticket",new Ticket());
