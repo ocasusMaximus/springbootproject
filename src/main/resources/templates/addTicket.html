@@ -64,5 +64,25 @@
             </table>
         </form>
 </div>
+<div>
+    <table class="table-list">
+        <thead>
+        <th>Sál</th>
+        <th>Kapacita</th>
+        </thead>
+        <tbody>
+        <!--  <tr th:if="${tickets.empty}">
+             <td colspan="3">Nebyly nalezeny žádné záznamy.</td>
+         </tr> -->
+        <tr th:each=" hall: ${halls}">
+
+            <td><span class="ticketProps" th:text="${hall.getName()}"> Sál </span></td>
+            <td><span class="ticketProps"th:text="${hall.getCapacity()}"> Jazyk </span></td>
+
+        </tr>
+        </tbody>
+
+    </table>
+</div>
 </body>
 </html>

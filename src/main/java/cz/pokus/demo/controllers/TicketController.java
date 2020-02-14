@@ -43,7 +43,7 @@ public class TicketController {
         model.addAttribute("tickets", ticketService.loadAllTickets());
         return "redirect:/";
     }
-    @GetMapping(value = "/tickets")
+    @GetMapping(value = "/addTicket")
     public String getTickets(Model model){
         model.addAttribute("ticket",new Ticket());
         return "addTicket";

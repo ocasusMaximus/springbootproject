@@ -15,12 +15,14 @@ public class Ticket {
     private String movie;
     private String language;
 
+
     public Ticket(int id, Date date, String movie, String language) {
         this.id = id;
         this.date = date;
         this.movie = movie;
         this.language = language;
     }
+
     public Ticket(){
 
     }
@@ -55,4 +57,6 @@ public class Ticket {
     public void setLanguage(String language) {
         this.language = language;
     }
+
+
 }

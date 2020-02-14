@@ -13,7 +13,7 @@ public interface TicketService {
 
     Ticket loadTicketByDate(Date date);
 
-    Ticket updateTicket(Ticket rssSource);
+    Ticket updateTicket(Ticket ticket);
 
     void removeTicketById(int id);
 
