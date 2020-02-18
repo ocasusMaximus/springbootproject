@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar navbar-expand-lg py-3 shadow-sm">
     <div class="container">
-        <a href="#" class="navbar-brand">
+        <a href="/" class="navbar-brand">
             <!-- Logo Image -->
             <img   src="../static/images/icon-spring-framework.svg" th:src="@{images/icon-spring-framework.svg}" width="100" height="40" alt="">
             <span class="text-uppercase font-weight-bold">Spring Framework</span>
@@ -54,22 +54,27 @@
 
          <td><span class="ticketProps" th:text="${ticket.getMovie()}"> Název </span></td>
          <td><span class="ticketProps"th:text="${ticket.getLanguage()}"> Jazyk </span></td>
-         <form method="post" th:action="@{/ticketDelete}" th:object="${ticket}">
+         <form method="post" th:action="@{/deleteTicket}" th:object="${ticket}">
              <input name="id" th:value="${ticket.getId()}" type="hidden"/>
              <input name="movie" th:value="${ticket.getMovie()}" type="hidden">
              <input name="language" th:value="${ticket.getLanguage()}" type="hidden">
              <td ><button type="submit" class="button_a" >Smazat</button></td>
          </form>
 
+         <form th:action="@{/updateTicket}" th:object="${ticket}">
+             <input name="id" th:value="${ticket.getId()}" />
+             <input name="movie" th:value="${ticket.getMovie()}" type="hidden">
+             <input name="language" th:value="${ticket.getLanguage()}" type="hidden">
+             <td ><button class="button_a" >Změnit</button></td>
+         </form>
 
-         <td ><button class="button_a" >Změnit</button></td>
      </tr>
      </tbody>
   <!--  <td colspan="1" class="form-buttons"><input type="submit" value="Smazat Vse"/></td>-->
  </table>
 </div>
 <div id="deleteAllButton" >
-    <form method="post" th:action="@{/ticketDeleteAll}">
+    <form method="post" th:action="@{/deleteAllTickets}">
     <button class="button_a" type="submit">Smazat Vse</button>
     </form>
 </div>

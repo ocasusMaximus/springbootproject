@@ -29,7 +29,7 @@
 
 <div class="form-part">
     <h1>Nová rezervace</h1>
-        <form action="#" th:action="@{/createTicket}" th:object="${ticket}" method="post">
+        <form action="#" th:action="@{/ticketUpdate}" th:object="${ticket}">
             <table class="form-table">
                 <tbody>
                 <tr>
@@ -64,44 +64,7 @@
             </table>
         </form>
 </div>
-<div class="form-part">
-    <h1>Úprava rezervace</h1>
-    <form action="#" th:action="@{/ticketUpdate}" th:object="${ticket}" method="post">
-        <table class="form-table">
-            <tbody>
-            <tr>
-                <td class="form-title">Film:</td>
-                <td  class="form-field">
-                    <select th:field="*{movie}">
-                        <option value="Star Wars: Pomsta Sithů">Star Wars: Pomsta Sithů</option>
-                        <option value="Avengers Endgame">Avengers Endgame</option>
-                        <option value="Pulp Fiction">Pulp Fiction</option>
-                        <option value="John Wick">John Wick</option>
-                    </select>
-                </td>
-                <!-- <td class="form-field"><input type="text" th:field="*{movie}" required/></td>-->
-            </tr>
-            <tr>
-            <tr>
-                <td class="form-title">Jazyk:</td>
-                <td class="form-field">
-                    <select th:field="*{language}">
-                        <option value="Angličtina">Angličtina</option>
-                        <option value="Čeština">Čeština</option>
-                    </select>
-            </tr>
-            <tr>
-
-                <td colspan="2" class="form-buttons">
-                    <input type="submit" class="button_a" value="Odeslat"/>
-                    <input type="reset" class="button_a" value="Reset"/>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </form>
-</div>
-<div>
+<!--<div>
     <table class="table-list">
         <thead>
         <th>Sál</th>
@@ -118,6 +81,6 @@
         </tbody>
 
     </table>
-</div>
+</div>-->
 </body>
 </html>

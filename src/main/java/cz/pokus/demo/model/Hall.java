@@ -18,6 +18,9 @@ public class Hall {
         this.capacity = capacity;
     }
 
+    public Hall() {
+    }
+
     public int getId() {
         return id;
     }
