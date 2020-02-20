@@ -7,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-
 
 @Controller
 public class TicketController {
@@ -55,22 +53,16 @@ public class TicketController {
     }
     @GetMapping(value = "/updateTicket")
     public String getUpdateTickets(Model model, @ModelAttribute Ticket ticket){
-        model.addAttribute("ticket",ticket);
+        model.addAttribute("tickets",ticketService.loadAllTickets());
         return "addTicket";
 
     }
 
-   @PostMapping (value = "/ticketUpdate")
-    public String updateTicket(@ModelAttribute Ticket ticket, @ModelAttribute String movie, Model model) {
-      Ticket ticket1 = ticketService.loadTicketById(ticket.getId());
-       System.out.println("*** "+ ticket1.getId());
-      for(int i =0; i < ticketService.loadAllTickets().size(); i++) {
-      System.out.println(ticket.getId());
-      }
-     // ticket1.setMovie(movie);
-      System.out.println(ticket.getId());
-      ticketService.updateTicket(ticket1);
-        model.addAttribute("tickets", ticketService.loadAllTickets());
+   @PostMapping (value = "/ticketUpdate/{id}")
+    public String updateTicket( @ModelAttribute Ticket ticket, @PathVariable int id, Model model) {
+        ticket.setId(id);
+        ticketService.updateTicket(ticket);
+       model.addAttribute("tickets",  ticketService.loadAllTickets());
         return "redirect:/";
     }
 

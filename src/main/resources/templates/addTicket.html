@@ -65,8 +65,8 @@
         </form>
 </div>
 <div class="form-part">
+    <form action="#" th:action="@{/ticketUpdate/{id}(id=${ticket.getId()})}" th:object="${ticket}" method="post">
     <h1>Úprava rezervace</h1>
-    <form action="#" th:action="@{/ticketUpdate}" th:object="${ticket}" method="post">
         <table class="form-table">
             <tbody>
             <tr>
