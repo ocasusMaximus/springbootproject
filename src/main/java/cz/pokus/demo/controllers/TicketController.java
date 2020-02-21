@@ -34,7 +34,11 @@ public class TicketController {
     public String createTicket(@ModelAttribute Ticket ticket, Model model) {
         //kdyz bude misto vytvor ticketu vratit response  ze neni misto
         //zobrazit errorovou stranku kvuli nedostatku mista
-        ticketService.createTicket(ticket);
+        if (hallService.loadHallById(1).getCapacity() > ticket.getNumberOfSeats()){
+            ticketService.createTicket(ticket);
+    } else {
+            System.out.println("Nedostatek místa");
+        }
         model.addAttribute("tickets", ticketService.loadAllTickets());
         return "redirect:/";
     }
@@ -68,7 +72,11 @@ public class TicketController {
    @PostMapping (value = "/ticketUpdate/{id}")
     public String updateTicket( @ModelAttribute Ticket ticket, @PathVariable int id, Model model) {
         ticket.setId(id);
-        ticketService.updateTicket(ticket);
+        if(hallService.loadHallById(1).getCapacity() > ticket.getNumberOfSeats()) {
+            ticketService.updateTicket(ticket);
+        } else  {
+            System.out.println("Neni misto!");
+        }
        model.addAttribute("tickets",  ticketService.loadAllTickets());
         return "redirect:/";
     }
