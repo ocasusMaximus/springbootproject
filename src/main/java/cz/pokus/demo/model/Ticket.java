@@ -16,6 +16,7 @@ public class Ticket {
     private String language;
 
 
+
     public Ticket(int id, Date date, String movie, String language) {
         this.id = id;
         this.date = date;

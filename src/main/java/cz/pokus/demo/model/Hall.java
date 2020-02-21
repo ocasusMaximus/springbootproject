@@ -12,14 +12,16 @@ public class Hall {
     private String name;
     private int capacity;
 
+
     public Hall(int id, String name, int capacity) {
         this.id = id;
         this.name = name;
         this.capacity = capacity;
     }
+    public Hall(){
 
-    public Hall() {
     }
+
 
     public int getId() {
         return id;

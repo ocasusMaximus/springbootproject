@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.annotation.PostConstruct;
 
@@ -23,19 +24,13 @@ public class HallController {
     }
     @PostConstruct
     public void init(){
-        hallService.createHall(new Hall(0,"J1",20));
         hallService.createHall(new Hall(1,"J2",20));
         hallService.createHall(new Hall(2,"J3",20));
-        System.out.println(hallService.loadAllHalls().get(0).getId());
-        System.out.println(hallService.loadAllHalls().get(1).getId());
+        for(int i =0; i < hallService.loadAllHalls().size(); i++){
+            System.out.println("Na pozici: " + i +" Id: " + hallService.loadAllHalls().get(i).getId() + " hala: "+ hallService.loadAllHalls().get(i).getName() + " kapacita:" + hallService.loadAllHalls().get(i).getCapacity());
+        }
+
     }
 
-   @GetMapping(value = "/addHalls")
-    public String getHalls(Model model) {
-        model.addAttribute("halls", hallService.loadAllHalls());
-//       System.out.println("Jsem tu");
-//        System.out.println(getHalls(model));
-        return "redirect:/addTicket";
-    }
 
 }

@@ -1,6 +1,8 @@
 package cz.pokus.demo.controllers;
 
+import cz.pokus.demo.db.HallService;
 import cz.pokus.demo.db.TicketService;
+import cz.pokus.demo.model.Hall;
 import cz.pokus.demo.model.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,11 +15,14 @@ public class TicketController {
 
 
     private final TicketService ticketService;
+    private HallService hallService;
 
     @Autowired
-    public TicketController(TicketService ticketService) {
+    public TicketController(TicketService ticketService, HallService hallService) {
         this.ticketService = ticketService;
+        this.hallService = hallService;
     }
+
 
 
     @GetMapping(value = "/")
@@ -28,7 +33,6 @@ public class TicketController {
     @PostMapping(value = "/createTicket")
     public String createTicket(@ModelAttribute Ticket ticket, Model model) {
         ticketService.createTicket(ticket);
-        System.out.println(ticket.getId());
         model.addAttribute("tickets", ticketService.loadAllTickets());
         return "redirect:/";
     }
@@ -48,6 +52,7 @@ public class TicketController {
     @GetMapping(value = "/addTicket")
     public String getTickets(Model model){
         model.addAttribute("ticket",new Ticket());
+        model.addAttribute("halls", hallService.loadAllHalls());
         return "addTicket";
 
     }

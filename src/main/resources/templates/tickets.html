@@ -62,7 +62,7 @@
          </form>
 
          <form th:action="@{/updateTicket}" th:object="${ticket}">
-             <input name="id" th:value="${ticket.getId()}" />
+             <input name="id" th:value="${ticket.getId()}" type="hidden"/>
              <input name="movie" th:value="${ticket.getMovie()}" type="hidden">
              <input name="language" th:value="${ticket.getLanguage()}" type="hidden">
              <td ><button class="button_a" >Změnit</button></td>
