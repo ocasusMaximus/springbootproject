@@ -32,6 +32,8 @@ public class TicketController {
     }
     @PostMapping(value = "/createTicket")
     public String createTicket(@ModelAttribute Ticket ticket, Model model) {
+        //kdyz bude misto vytvor ticketu vratit response  ze neni misto
+        //zobrazit errorovou stranku kvuli nedostatku mista
         ticketService.createTicket(ticket);
         model.addAttribute("tickets", ticketService.loadAllTickets());
         return "redirect:/";

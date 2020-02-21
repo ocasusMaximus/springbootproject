@@ -14,14 +14,18 @@ public class Ticket {
     private Date date;
     private String movie;
     private String language;
+    private int numberOfSeats;
 
 
 
-    public Ticket(int id, Date date, String movie, String language) {
+
+    public Ticket(int id, Date date, String movie, String language, int numberOfSeats) {
         this.id = id;
         this.date = date;
         this.movie = movie;
         this.language = language;
+        this.numberOfSeats = numberOfSeats;
+
     }
 
     public Ticket(){
@@ -59,5 +63,11 @@ public class Ticket {
         this.language = language;
     }
 
+    public int getNumberOfSeats() {
+        return numberOfSeats;
+    }
 
+    public void setNumberOfSeats(int numberOfSeats) {
+        this.numberOfSeats = numberOfSeats;
+    }
 }

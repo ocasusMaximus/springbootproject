@@ -20,7 +20,7 @@
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="/" class="nav-link">Seznam rezervací</a></li>
-                <li class="nav-item"><a href="/tickets" class="nav-link">Nová rezervace</a></li>
+                <li class="nav-item"><a href="/addTicket" class="nav-link">Nová rezervace</a></li>
             </ul>
         </div>
     </div>
@@ -52,6 +52,15 @@
                             <option value="Angličtina">Angličtina</option>
                             <option value="Čeština">Čeština</option>
                         </select>
+                </tr>
+                <tr>
+                    <td class="form-title">Počet míst:</td>
+                    <td  class="form-field">
+                        <input type="text" th:field="*{numberOfSeats}" required>
+
+                        </input>
+                    </td>
+                    <!-- <td class="form-field"><input type="text" th:field="*{movie}" required/></td>-->
                 </tr>
                 <tr>
 
@@ -91,6 +100,15 @@
                     </select>
             </tr>
             <tr>
+            <tr>
+                <td class="form-title">Počet míst:</td>
+                <td  class="form-field">
+                    <input type="text" th:field="*{numberOfSeats}" required>
+
+                    </input>
+                </td>
+                <!-- <td class="form-field"><input type="text" th:field="*{movie}" required/></td>-->
+            </tr>
 
                 <td colspan="2" class="form-buttons">
                     <input type="submit" class="button_a" value="Odeslat"/>

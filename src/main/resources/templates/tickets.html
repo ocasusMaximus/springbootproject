@@ -43,6 +43,7 @@
     <thead>
     <th>Název</th>
     <th>Jazyk</th>
+    <th>Počet míst</th>
     <th>Smazání</th>
     <th>Změna</th>
     </thead>
@@ -54,10 +55,12 @@
 
          <td><span class="ticketProps" th:text="${ticket.getMovie()}"> Název </span></td>
          <td><span class="ticketProps"th:text="${ticket.getLanguage()}"> Jazyk </span></td>
+         <td><span class="ticketProps" th:text="${ticket.getNumberOfSeats()}"> Počet míst </span></td>
          <form method="post" th:action="@{/deleteTicket}" th:object="${ticket}">
              <input name="id" th:value="${ticket.getId()}" type="hidden"/>
              <input name="movie" th:value="${ticket.getMovie()}" type="hidden">
              <input name="language" th:value="${ticket.getLanguage()}" type="hidden">
+             <input name="numberOfSeats" th:value="${ticket.getNumberOfSeats()}" type="hidden">
              <td ><button type="submit" class="button_a" >Smazat</button></td>
          </form>
 
