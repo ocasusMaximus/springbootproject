@@ -1,7 +1,9 @@
 package cz.pokus.demo.db.implementation;
 
+import cz.pokus.demo.db.HallService;
 import cz.pokus.demo.db.TicketRepository;
 import cz.pokus.demo.db.TicketService;
+import cz.pokus.demo.model.Hall;
 import cz.pokus.demo.model.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,5 +53,17 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public List<Ticket> loadAllTickets() {
         return ticketRepository.findAll();
+    }
+
+    @Override
+    public int getNumberOfTakenSeats(Ticket ticket) {
+
+        int numberOfTakenSeats = 0;
+        for (Ticket item : loadAllTickets()) {
+            if(item.getHall().equals(ticket.getHall())) {
+                numberOfTakenSeats += item.getNumberOfSeats();
+            }
+        }
+        return numberOfTakenSeats;
     }
 }

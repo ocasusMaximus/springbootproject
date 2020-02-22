@@ -1,5 +1,6 @@
 package cz.pokus.demo.db;
 
+import cz.pokus.demo.model.Hall;
 import cz.pokus.demo.model.Ticket;
 
 import java.util.Date;
@@ -22,4 +23,6 @@ public interface TicketService {
     void deleteAllTickets();
 
     List<Ticket> loadAllTickets();
+
+    int getNumberOfTakenSeats(Ticket ticket);
 }

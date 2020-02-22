@@ -15,17 +15,19 @@ public class Ticket {
     private String movie;
     private String language;
     private int numberOfSeats;
+    private String hall;
 
 
 
 
-    public Ticket(int id, Date date, String movie, String language, int numberOfSeats) {
+
+    public Ticket(int id, Date date, String movie, String language, int numberOfSeats, String hall) {
         this.id = id;
         this.date = date;
         this.movie = movie;
         this.language = language;
         this.numberOfSeats = numberOfSeats;
-
+        this.hall = hall;
     }
 
     public Ticket(){
@@ -69,5 +71,13 @@ public class Ticket {
 
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
+    }
+
+    public String getHall() {
+        return hall;
+    }
+
+    public void setHall(String hall) {
+        this.hall = hall;
     }
 }

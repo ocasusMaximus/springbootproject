@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg py-3 shadow-sm">
+    <div class="container">
+        <a href="/" class="navbar-brand">
+            <!-- Logo Image -->
+            <img   src="../static/images/icon-spring-framework.svg" th:src="@{images/icon-spring-framework.svg}" width="100" height="40" alt="">
+            <span class="text-uppercase font-weight-bold">Spring Framework</span>
+        </a>
+
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="/" class="nav-link">Seznam rezervací</a></li>
+                <li class="nav-item"><a href="/addTicket" class="nav-link">Nová rezervace</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div>
+<h1>Kapacita sálu obsazena</h1>
+<h2>Prosím vyberte jiný sál nebo změntě počet míst</h2>
+</div>
+<div>
+<form id = "goback" th:action = "@{/addTicket}" >
+    <button class="button_a" >Zpět</button>
+
+</form>
+</div>
+
+</body>
+</html>

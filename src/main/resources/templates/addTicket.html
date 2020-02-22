@@ -63,6 +63,14 @@
                     <!-- <td class="form-field"><input type="text" th:field="*{movie}" required/></td>-->
                 </tr>
                 <tr>
+                    <td class="form-title">Sál:</td>
+                    <td class="form-field">
+                        <select th:field="*{hall}">
+                            <option value="J2">J2</option>
+                            <option value="J3">J3</option>
+                        </select>
+                </tr>
+                <tr>
 
                     <td colspan="2" class="form-buttons">
                         <input type="submit" class="button_a" value="Odeslat"/>
@@ -74,7 +82,7 @@
         </form>
 </div>
 <div class="form-part">
-    <form action="#" th:action="@{/ticketUpdate/{id}(id=${ticket.getId()})}" th:object="${ticket}" method="post">
+    <form action="#" method="post" th:action="@{/ticketUpdate/{id}(id=${ticket.getId()})}" th:object="${ticket}">
     <h1>Úprava rezervace</h1>
         <table class="form-table">
             <tbody>
@@ -108,6 +116,14 @@
                     </input>
                 </td>
                 <!-- <td class="form-field"><input type="text" th:field="*{movie}" required/></td>-->
+            </tr>
+            <tr>
+                <td class="form-title">Sál:</td>
+                <td class="form-field">
+                    <select th:field="*{hall}">
+                        <option value="J2">J2</option>
+                        <option value="J3">J3</option>
+                    </select>
             </tr>
 
                 <td colspan="2" class="form-buttons">

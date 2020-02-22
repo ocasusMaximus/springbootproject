@@ -9,6 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 @Controller
 public class TicketController {
@@ -28,20 +33,28 @@ public class TicketController {
     @GetMapping(value = "/")
     public String index(Model model) {
         model.addAttribute("tickets", ticketService.loadAllTickets());
+        model.addAttribute("halls", hallService.loadAllHalls());
         return "tickets";
     }
     @PostMapping(value = "/createTicket")
     public String createTicket(@ModelAttribute Ticket ticket, Model model) {
-        //kdyz bude misto vytvor ticketu vratit response  ze neni misto
-        //zobrazit errorovou stranku kvuli nedostatku mista
-        if (hallService.loadHallById(1).getCapacity() > ticket.getNumberOfSeats()){
+
+        int idOfHall = hallService.getIdOfHall(ticket);
+        int capacity =hallService.loadHallById(idOfHall).getCapacity() -ticketService.getNumberOfTakenSeats(ticket);
+        if (capacity>= ticket.getNumberOfSeats()){
             ticketService.createTicket(ticket);
+           hallService.loadHallById(idOfHall).setCapacity(capacity- ticket.getNumberOfSeats());
+            System.out.println("Při creatu:" + hallService.loadHallById(idOfHall).getCapacity() + " nazev " + hallService.loadHallById(idOfHall).getName());
+
     } else {
-            System.out.println("Nedostatek místa");
+           return "error";
         }
         model.addAttribute("tickets", ticketService.loadAllTickets());
+
         return "redirect:/";
     }
+
+
 
     @PostMapping(value = "/deleteTicket")
     public String deleteTicket(@ModelAttribute Ticket ticket, Model model) {
@@ -59,6 +72,7 @@ public class TicketController {
     public String getTickets(Model model){
         model.addAttribute("ticket",new Ticket());
         model.addAttribute("halls", hallService.loadAllHalls());
+        System.out.println("Jsem v addu: "+hallService.loadHallById(1).getCapacity());
         return "addTicket";
 
     }
@@ -72,10 +86,20 @@ public class TicketController {
    @PostMapping (value = "/ticketUpdate/{id}")
     public String updateTicket( @ModelAttribute Ticket ticket, @PathVariable int id, Model model) {
         ticket.setId(id);
-        if(hallService.loadHallById(1).getCapacity() > ticket.getNumberOfSeats()) {
-            ticketService.updateTicket(ticket);
+       int idOfHall = hallService.getIdOfHall(ticket);
+       System.out.println("prvni" +hallService.loadHallById(idOfHall).getCapacity());
+       //problem je v tom ze capacita je tady zadana a uz je aktualne snizena takze snizuji od snizene
+       int capacity =hallService.loadHallById(idOfHall).getCapacity() -ticketService.getNumberOfTakenSeats(ticket);
+       System.out.println(capacity);
+       if (capacity>= ticket.getNumberOfSeats()){
+           System.out.println("druha " +hallService.loadHallById(idOfHall).getCapacity());
+           ticketService.updateTicket(ticket);
+           capacity =hallService.loadHallById(idOfHall).getCapacity() -ticketService.getNumberOfTakenSeats(ticket);
+           hallService.loadHallById(idOfHall).setCapacity(capacity);
+           System.out.println("capacity"+capacity);
+           System.out.println("treti: " +hallService.loadHallById(idOfHall).getCapacity());
         } else  {
-            System.out.println("Neni misto!");
+            return "error";
         }
        model.addAttribute("tickets",  ticketService.loadAllTickets());
         return "redirect:/";
