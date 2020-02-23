@@ -42,7 +42,7 @@
                         <option value="John Wick">John Wick</option>
                         </select>
                     </td>
-                   <!-- <td class="form-field"><input type="text" th:field="*{movie}" required/></td>-->
+
                 </tr>
                 <tr>
                 <tr>
@@ -54,15 +54,6 @@
                         </select>
                 </tr>
                 <tr>
-                    <td class="form-title">Počet míst:</td>
-                    <td  class="form-field">
-                        <input type="text" th:field="*{numberOfSeats}" required>
-
-                        </input>
-                    </td>
-                    <!-- <td class="form-field"><input type="text" th:field="*{movie}" required/></td>-->
-                </tr>
-                <tr>
                     <td class="form-title">Sál:</td>
                     <td class="form-field">
                         <select th:field="*{hall}">
@@ -70,6 +61,17 @@
                             <option value="J3">J3</option>
                         </select>
                 </tr>
+                <tr>
+                    <td class="form-title">Počet míst:</td>
+                    <td  class="form-field">
+                        <input min="1" required th:field="*{numberOfSeats}"
+                               type="number">
+
+                        </input>
+                    </td>
+                    <!-- <td class="form-field"><input type="text" th:field="*{movie}" required/></td>-->
+                </tr>
+
                 <tr>
 
                     <td colspan="2" class="form-buttons">
@@ -108,16 +110,6 @@
                     </select>
             </tr>
             <tr>
-            <tr>
-                <td class="form-title">Počet míst:</td>
-                <td  class="form-field">
-                    <input type="text" th:field="*{numberOfSeats}" required>
-
-                    </input>
-                </td>
-                <!-- <td class="form-field"><input type="text" th:field="*{movie}" required/></td>-->
-            </tr>
-            <tr>
                 <td class="form-title">Sál:</td>
                 <td class="form-field">
                     <select th:field="*{hall}">
@@ -125,6 +117,18 @@
                         <option value="J3">J3</option>
                     </select>
             </tr>
+
+            <tr>
+                <td class="form-title">Počet míst:</td>
+                <td  class="form-field">
+                    <input  min="1" required th:field="*{numberOfSeats}"
+                           type="number">
+
+                    </input>
+                </td>
+                <!-- <td class="form-field"><input type="text" th:field="*{movie}" required/></td>-->
+            </tr>
+            <tr>
 
                 <td colspan="2" class="form-buttons">
                     <input type="submit" class="button_a" value="Odeslat"/>
@@ -143,7 +147,7 @@
         </thead>
         <tbody>
 
-        <tr th:action="@{/getHalls}" th:each=" hall: ${halls}">
+        <tr th:action="@{/addTicket}" th:each=" hall: ${halls}">
 
             <td><span class="ticketProps" th:text="${hall.getName()}"> Sál </span></td>
             <td><span class="ticketProps"th:text="${hall.getCapacity()}"> Kapacita </span></td>
