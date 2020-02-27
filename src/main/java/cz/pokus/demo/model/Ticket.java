@@ -1,17 +1,15 @@
 package cz.pokus.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "TICKET", schema = "TICKETSYSTEM")
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Date date;
+
     private String movie;
     private String language;
     private int numberOfSeats;
@@ -19,20 +17,11 @@ public class Ticket {
 
 
 
-
-
-    public Ticket(int id, Date date, String movie, String language, int numberOfSeats, String hall) {
-        this.id = id;
-        this.date = date;
-        this.movie = movie;
-        this.language = language;
-        this.numberOfSeats = numberOfSeats;
-        this.hall = hall;
-    }
-
     public Ticket(){
 
     }
+    @Basic
+    @Column(name = "ID")
     public int getId() {
         return id;
     }
@@ -41,14 +30,8 @@ public class Ticket {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
+    @Basic
+    @Column(name = "MOVIE")
     public String getMovie() {
         return movie;
     }
@@ -57,6 +40,8 @@ public class Ticket {
         this.movie = movie;
     }
 
+    @Basic
+    @Column(name = "LANGUAGE")
     public String getLanguage() {
         return language;
     }
@@ -65,6 +50,8 @@ public class Ticket {
         this.language = language;
     }
 
+    @Basic
+    @Column(name = "NUMBER_OF_SEATS")
     public int getNumberOfSeats() {
         return numberOfSeats;
     }
@@ -73,6 +60,8 @@ public class Ticket {
         this.numberOfSeats = numberOfSeats;
     }
 
+    @Basic
+    @Column(name = "HALL")
     public String getHall() {
         return hall;
     }
