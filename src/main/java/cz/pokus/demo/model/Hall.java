@@ -1,10 +1,9 @@
 package cz.pokus.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Entity
+@Table(name = "HALL", schema = "bakzahraja1")
 public class Hall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,16 +12,13 @@ public class Hall {
     private int capacity;
 
 
-    public Hall(int id, String name, int capacity) {
-        this.id = id;
-        this.name = name;
-        this.capacity = capacity;
-    }
+
     public Hall(){
 
     }
 
-
+    @Id
+    @Column(name = "ID")
     public int getId() {
         return id;
     }
@@ -30,7 +26,8 @@ public class Hall {
     public void setId(int id) {
         this.id = id;
     }
-
+    @Basic
+    @Column(name = "NAME")
     public String getName() {
         return name;
     }
@@ -38,7 +35,8 @@ public class Hall {
     public void setName(String name) {
         this.name = name;
     }
-
+    @Basic
+    @Column(name = "CAPACITY")
     public int getCapacity() {
         return capacity;
     }

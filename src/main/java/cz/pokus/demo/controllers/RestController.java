@@ -28,7 +28,7 @@ public class RestController {
         this.ticketService = ticketService;
         this.hallService = hallService;
     }
-
+/*
     @PostConstruct
     public void init() {
         hallService.createHall(new Hall(1, "J2", 20));
@@ -38,7 +38,7 @@ public class RestController {
         }
 
     }
-
+*/
     @GetMapping(value = "/")
     public String index(Model model) {
         model.addAttribute("tickets", ticketService.loadAllTickets());
