@@ -1,15 +1,15 @@
 package cz.pokus.demo.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
 @Table(name = "TICKET", schema = "bakzahraja1")
 public class Ticket {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
     private String movie;
     private String language;
     private int numberOfSeats;
@@ -20,7 +20,7 @@ public class Ticket {
     public Ticket(){
 
     }
-    @Id
+    @Basic
     @Column(name = "ID")
     public int getId() {
         return id;
