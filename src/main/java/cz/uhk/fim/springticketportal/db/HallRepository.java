@@ -1,6 +1,6 @@
-package cz.pokus.demo.db;
+package cz.uhk.fim.springticketportal.db;
 
-import cz.pokus.demo.model.Hall;
+import cz.uhk.fim.springticketportal.model.Hall;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,6 @@
-package cz.pokus.demo.db;
+package cz.uhk.fim.springticketportal.db;
 
-import cz.pokus.demo.model.Hall;
-import cz.pokus.demo.model.Ticket;
+import cz.uhk.fim.springticketportal.model.Ticket;
 
 import java.util.Date;
 import java.util.List;

@@ -1,19 +1,15 @@
-package cz.pokus.demo.controllers;
+package cz.uhk.fim.springticketportal.controllers;
 
-import cz.pokus.demo.db.HallService;
-import cz.pokus.demo.db.TicketService;
-import cz.pokus.demo.model.Hall;
-import cz.pokus.demo.model.Ticket;
+import cz.uhk.fim.springticketportal.db.HallService;
+import cz.uhk.fim.springticketportal.db.TicketService;
+import cz.uhk.fim.springticketportal.model.Hall;
+import cz.uhk.fim.springticketportal.model.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 @Controller
@@ -29,15 +25,7 @@ public class RestController {
         this.hallService = hallService;
     }
 
-    @PostConstruct
-    public void init() {
-        //hallService.createHall(new Hall(1, "J2", 20));
-        //hallService.createHall(new Hall(2, "J3", 20));
-        for (int i = 0; i < hallService.loadAllHalls().size(); i++) {
-            System.out.println("Na pozici: " + i + " Id: " + hallService.loadAllHalls().get(i).getId() + " hala: " + hallService.loadAllHalls().get(i).getName() + " kapacita:" + hallService.loadAllHalls().get(i).getCapacity());
-        }
 
-    }
 
     @GetMapping(value = "/")
     public String index(Model model) {
@@ -103,7 +91,6 @@ public class RestController {
     public String getTickets(Model model) {
         model.addAttribute("ticket", new Ticket());
         model.addAttribute("halls", hallService.loadAllHalls());
-        //System.out.println("Jsem v addu: " + hallService.loadHallById(1).getCapacity());
         return "addTicket";
 
     }

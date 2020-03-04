@@ -1,10 +1,9 @@
-package cz.pokus.demo.db;
+package cz.uhk.fim.springticketportal.db;
 
-import cz.pokus.demo.model.Hall;
-import cz.pokus.demo.model.Ticket;
+import cz.uhk.fim.springticketportal.model.Hall;
+import cz.uhk.fim.springticketportal.model.Ticket;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import java.util.Date;
 import java.util.List;
 
 public interface HallService {

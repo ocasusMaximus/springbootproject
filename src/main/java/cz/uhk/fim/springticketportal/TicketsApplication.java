@@ -1,14 +1,13 @@
-package cz.pokus.demo;
+package cz.uhk.fim.springticketportal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-public class TicketsDemoApplication {
+public class TicketsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TicketsDemoApplication.class, args);
+        SpringApplication.run(TicketsApplication.class, args);
     }
 
 }

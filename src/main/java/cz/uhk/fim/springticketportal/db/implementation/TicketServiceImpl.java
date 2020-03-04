@@ -1,10 +1,8 @@
-package cz.pokus.demo.db.implementation;
+package cz.uhk.fim.springticketportal.db.implementation;
 
-import cz.pokus.demo.db.HallService;
-import cz.pokus.demo.db.TicketRepository;
-import cz.pokus.demo.db.TicketService;
-import cz.pokus.demo.model.Hall;
-import cz.pokus.demo.model.Ticket;
+import cz.uhk.fim.springticketportal.db.TicketRepository;
+import cz.uhk.fim.springticketportal.db.TicketService;
+import cz.uhk.fim.springticketportal.model.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

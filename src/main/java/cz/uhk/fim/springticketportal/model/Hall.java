@@ -1,4 +1,4 @@
-package cz.pokus.demo.model;
+package cz.uhk.fim.springticketportal.model;
 
 import javax.persistence.*;
 
