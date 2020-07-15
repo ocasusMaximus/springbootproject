@@ -5,7 +5,7 @@
     <title>Title</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/springstyle.css}"/>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg py-3 shadow-sm">
@@ -67,7 +67,7 @@
              <td ><button type="submit" class="button_a" >Smazat</button></td>
          </form>
 
-         <form th:action="@{/updateTicket}" th:object="${ticket}">
+         <form th:action="@{/editTicket}" th:object="${ticket}">
              <input name="id" th:value="${ticket.getId()}" type="hidden"/>
              <input name="movie" th:value="${ticket.getMovie()}" type="hidden">
              <input name="language" th:value="${ticket.getLanguage()}" type="hidden">

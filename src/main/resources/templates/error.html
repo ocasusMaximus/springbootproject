@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/springstyle.css}"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -25,11 +25,13 @@
         </div>
     </div>
 </nav>
-<div>
+<div class="d-flex align-items-center justify-content-center">
+<div class="text-center">
 <h1>Kapacita sálu obsazena</h1>
 <h2>Prosím vyberte jiný sál nebo změntě počet míst</h2>
 </div>
-<div>
+</div>
+<div  class="d-flex align-items-center justify-content-center">
 <form id = "goback" th:action = "@{/addTicket}" >
     <button class="button_a" >Zpět</button>
 

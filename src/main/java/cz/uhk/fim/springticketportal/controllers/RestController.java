@@ -26,7 +26,6 @@ public class RestController {
     }
 
 
-
     @GetMapping(value = "/")
     public String index(Model model) {
         model.addAttribute("tickets", ticketService.loadAllTickets());
@@ -37,21 +36,19 @@ public class RestController {
     public String createTicket(@ModelAttribute Ticket ticket, Model model) {
         int idOfHall = hallService.getIdOfHall(ticket);
         Hall updatedHall = hallService.loadHallById(idOfHall);
-        // System.out.println("Jsem v creatu pred pridanim do modelu: " + hallService.loadHallById(idOfHall).getCapacity());
         int capacity = hallService.loadHallById(idOfHall).getCapacity();
-        if (capacity >= ticket.getNumberOfSeats()) {
 
+        if (capacity >= ticket.getNumberOfSeats()) {
             ticketService.createTicket(ticket);
-            System.out.println(ticket.getId());
-            hallService.loadHallById(idOfHall).setCapacity(capacity - ticket.getNumberOfSeats());
+            updatedHall.setCapacity(capacity - ticket.getNumberOfSeats());
             hallService.createHall(updatedHall);
-            //System.out.println("Při creatu:" + hallService.loadHallById(idOfHall).getCapacity() + " nazev " + hallService.loadHallById(idOfHall).getName());
+
 
         } else {
             return "error";
         }
         model.addAttribute("tickets", ticketService.loadAllTickets());
-        //  System.out.println("Jsem v creatu po pridani do modelu: " + hallService.loadHallById(idOfHall).getCapacity());
+
         return "redirect:/";
     }
 
@@ -73,7 +70,7 @@ public class RestController {
     @PostMapping(value = "/deleteAllTickets")
     public String deleteAllTickets(Model model) {
         for (Ticket ticket : ticketService.loadAllTickets()) {
-            System.out.println(ticket.getId());
+
             int tickNoS = ticket.getNumberOfSeats();
             int idOfHall = hallService.getIdOfHall(ticket);
             Hall updatedHall = hallService.loadHallById(idOfHall);
@@ -95,29 +92,45 @@ public class RestController {
 
     }
 
-    @GetMapping(value = "/updateTicket")
-    public String getUpdateTickets(Model model, @ModelAttribute Ticket ticket) {
+    @GetMapping(value = "/editTicket")
+    public String getEditTicket(Model model, @ModelAttribute Ticket ticket) {
         model.addAttribute("tickets", ticketService.loadAllTickets());
         model.addAttribute("halls", hallService.loadAllHalls());
         return "addTicket";
 
     }
 
-    @PostMapping(value = "/ticketUpdate/{id}")
+    @PostMapping(value = "/updateTicket/{id}")
     public String updateTicket(@ModelAttribute Ticket ticket, @PathVariable int id, Model model) {
-        int oldTicketNoS = ticketService.loadTicketById(id).getNumberOfSeats();
-        int oldIdOfHall = hallService.getIdOfHall(ticketService.loadTicketById(id));
+        Ticket dbTicket = ticketService.loadTicketById(id);
+        int oldTicketNoS = dbTicket.getNumberOfSeats();
+
+        int oldIdOfHall = hallService.getIdOfHall(dbTicket);
         int idOfHall = hallService.getIdOfHall(ticket);
+
         Hall oldHall = hallService.loadHallById(oldIdOfHall);
         Hall updatedHall = hallService.loadHallById(idOfHall);
-        int capacity = oldHall.getCapacity() + oldTicketNoS;
-        if (capacity >= ticket.getNumberOfSeats()) {
-            oldHall.setCapacity(capacity);
-            ticketService.updateTicket(ticket);
+
+        int capacity;
+        if (oldHall.getId() != updatedHall.getId()){
             capacity = updatedHall.getCapacity();
+        } else{
+            capacity = oldHall.getCapacity() + oldTicketNoS;
+        }
 
-            updatedHall.setCapacity(capacity - ticket.getNumberOfSeats());
+        if (capacity >= ticket.getNumberOfSeats()) {
 
+            ticket.setId(id);
+            ticketService.updateTicket(ticket);
+
+            if (oldHall.getId() != updatedHall.getId())
+            {
+                int oldCapacity = oldHall.getCapacity() + oldTicketNoS;
+                oldHall.setCapacity(oldCapacity);
+                hallService.createHall(oldHall);
+            }
+
+            updatedHall.setCapacity(capacity- ticket.getNumberOfSeats());
             hallService.createHall(updatedHall);
 
         } else {
