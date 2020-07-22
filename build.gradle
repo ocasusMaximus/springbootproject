@@ -21,7 +21,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.webjars:bootstrap:4.1.0'
-    implementation(files("${rootProject.projectDir}/lib/ojdbc8.jar"))
+    implementation 'org.hsqldb:hsqldb:2.5.1'
 
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {

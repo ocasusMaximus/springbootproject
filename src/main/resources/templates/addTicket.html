@@ -2,10 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Spring framework</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/springstyle.css}"/>
+    <link rel="icon" type="image/svg" th:href="@{images/icon-spring-framework.svg}"/>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg py-3 shadow-sm">
@@ -36,31 +38,32 @@
         <div class="row justify-content-center">
             <h1>Nová rezervace</h1>
         </div>
+        <label>Film: </label>
         <select class="custom-select custom-select-sm mb-3" th:field="*{movie}">
             <option value="Star Wars: Pomsta Sithů">Star Wars: Pomsta Sithů</option>
             <option value="Avengers Endgame">Avengers Endgame</option>
             <option value="Pulp Fiction">Pulp Fiction</option>
             <option value="John Wick">John Wick</option>
         </select>
-
+        <label>Jazyk: </label>
         <select class="custom-select custom-select-sm mb-3" th:field="*{language}">
             <option value="Angličtina">Angličtina</option>
             <option value="Čeština">Čeština</option>
         </select>
-
+        <label>Sál: </label>
         <select class="custom-select custom-select-sm mb-3" th:field="*{hall}">
             <option value="J2">J2</option>
             <option value="J3">J3</option>
         </select>
-
+        <label>Počet míst: </label>
         <input class="form-control form-control-sm" min="1" required th:field="*{numberOfSeats}"
                type="number">
 
         <div class="row justify-content-center">
-            <input type="submit" class="button_a" value="Odeslat"/>
+            <input type="submit" class="button_b" value="Odeslat"/>
         </div>
         <div class="row justify-content-center">
-            <input type="reset" class="button_a" value="Reset"/>
+            <input type="reset" class="button_b" value="Reset"/>
 
         </div>
     </form>
@@ -73,31 +76,32 @@
         <div class="row justify-content-center">
             <h1>Úprava rezervace</h1>
         </div>
+        <label>Film: </label>
         <select class="custom-select custom-select-sm mb-3" th:field="*{movie}">
             <option value="Star Wars: Pomsta Sithů">Star Wars: Pomsta Sithů</option>
             <option value="Avengers Endgame">Avengers Endgame</option>
             <option value="Pulp Fiction">Pulp Fiction</option>
             <option value="John Wick">John Wick</option>
         </select>
-
+        <label>Jazyk: </label>
         <select class="custom-select custom-select-sm mb-3" th:field="*{language}">
             <option value="Angličtina">Angličtina</option>
             <option value="Čeština">Čeština</option>
         </select>
-
+        <label>Sál: </label>
         <select class="custom-select custom-select-sm mb-3" th:field="*{hall}">
             <option value="J2">J2</option>
             <option value="J3">J3</option>
         </select>
-
+        <label>Počet míst: </label>
         <input class="form-control form-control-sm" min="1" required th:field="*{numberOfSeats}"
                type="number">
 
         <div class="row justify-content-center">
-            <input type="submit" class="button_a" value="Odeslat"/>
+            <input type="submit" class="button_b" value="Odeslat"/>
         </div>
         <div class="row justify-content-center">
-            <input type="reset" class="button_a" value="Reset"/>
+            <input type="reset" class="button_b" value="Reset"/>
 
         </div>
     </form>

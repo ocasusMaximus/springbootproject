@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
-@Table(name = "TICKET", schema = "bakzahraja1")
+@Table(name = "TICKET")
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
