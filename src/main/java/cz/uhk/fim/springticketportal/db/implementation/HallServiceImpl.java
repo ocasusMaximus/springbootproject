@@ -23,7 +23,7 @@ public class HallServiceImpl implements HallService {
 
     @Override
     public Hall loadHallById(int id) {
-        return hallRepository.getOne(id);
+        return hallRepository.findById(id).get();
     }
 
     @Override

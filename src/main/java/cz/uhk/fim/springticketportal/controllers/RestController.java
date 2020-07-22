@@ -96,7 +96,7 @@ public class RestController {
     public String getEditTicket(Model model, @ModelAttribute Ticket ticket) {
         model.addAttribute("tickets", ticketService.loadAllTickets());
         model.addAttribute("halls", hallService.loadAllHalls());
-        return "addTicket";
+        return "editTicket";
 
     }
 
