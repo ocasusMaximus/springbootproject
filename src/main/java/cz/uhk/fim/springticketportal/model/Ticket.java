@@ -1,7 +1,7 @@
 package cz.uhk.fim.springticketportal.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+
 import java.util.Date;
 
 @Entity
