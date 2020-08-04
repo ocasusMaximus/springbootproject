@@ -86,6 +86,7 @@ public class RestController {
 
     @GetMapping(value = "/addTicket")
     public String getTickets(Model model) {
+        initHalls();
         model.addAttribute("ticket", new Ticket());
         model.addAttribute("halls", hallService.loadAllHalls());
         return "addTicket";
@@ -94,7 +95,7 @@ public class RestController {
 
     @GetMapping(value = "/editTicket")
     public String getEditTicket(Model model, @ModelAttribute Ticket ticket) {
-        model.addAttribute("tickets", ticketService.loadAllTickets());
+        initHalls();
         model.addAttribute("halls", hallService.loadAllHalls());
         return "editTicket";
 
@@ -138,6 +139,22 @@ public class RestController {
         }
         model.addAttribute("tickets", ticketService.loadAllTickets());
         return "redirect:/";
+    }
+
+    private void initHalls() {
+        if (hallService.loadAllHalls().size() == 0) {
+            Hall j2 = new Hall();
+            j2.setId(1);
+            j2.setCapacity(100);
+            j2.setName("J2");
+            Hall j3 = new Hall();
+            j3.setId(2);
+            j3.setCapacity(100);
+            j3.setName("J3");
+
+            hallService.createHall(j2);
+            hallService.createHall(j3);
+        }
     }
 
 }
