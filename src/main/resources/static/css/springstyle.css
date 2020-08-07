@@ -18,7 +18,6 @@ table.table-list th {
 table.table-list td {
     padding: 5px;
 
-    /*border-bottom: 1px solid #444444;*/
 }
 
 table.table-list tr:nth-of-type(even) {

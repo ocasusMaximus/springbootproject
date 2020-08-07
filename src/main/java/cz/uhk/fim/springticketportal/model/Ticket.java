@@ -2,7 +2,6 @@ package cz.uhk.fim.springticketportal.model;
 
 import javax.persistence.*;
 
-import java.util.Date;
 
 @Entity
 @Table(name = "TICKET")
