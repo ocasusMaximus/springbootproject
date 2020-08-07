@@ -15,10 +15,10 @@ public class Ticket {
     private String hall;
 
 
-
-    public Ticket(){
+    public Ticket() {
 
     }
+
     @Basic
     @Column(name = "ID")
     public int getId() {

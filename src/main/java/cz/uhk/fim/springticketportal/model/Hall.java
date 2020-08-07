@@ -12,8 +12,7 @@ public class Hall {
     private int capacity;
 
 
-
-    public Hall(){
+    public Hall() {
 
     }
 
@@ -26,6 +25,7 @@ public class Hall {
     public void setId(int id) {
         this.id = id;
     }
+
     @Basic
     @Column(name = "NAME")
     public String getName() {
@@ -35,6 +35,7 @@ public class Hall {
     public void setName(String name) {
         this.name = name;
     }
+
     @Basic
     @Column(name = "CAPACITY")
     public int getCapacity() {

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Spring framework</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/springstyle.css}"/>
     <link rel="icon" type="image/svg" th:href="@{images/icon-spring-framework.svg}"/>
 </head>
@@ -12,12 +13,14 @@
 <nav class="navbar navbar-expand-lg py-3 shadow-sm">
     <div class="container">
         <a href="/" class="navbar-brand">
-            <!-- Logo Image -->
-            <img   src="../static/images/icon-spring-framework.svg" th:src="@{images/icon-spring-framework.svg}" width="100" height="40" alt="">
+            <img src="../static/images/icon-spring-framework.svg" th:src="@{images/icon-spring-framework.svg}"
+                 width="100" height="40" alt="">
             <span class="text-uppercase font-weight-bold">Spring Framework</span>
         </a>
 
-        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
 
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
@@ -29,49 +32,53 @@
 </nav>
 
 <div>
-<table class="table-list">
-    <thead>
-    <th>Název</th>
-    <th>Jazyk</th>
-    <th>Počet míst</th>
-    <th>Sál</th>
-    <th>Smazání</th>
-    <th>Změna</th>
-    </thead>
-    <tbody>
+    <table class="table-list">
+        <thead>
+        <th>Název</th>
+        <th>Jazyk</th>
+        <th>Počet míst</th>
+        <th>Sál</th>
+        <th>Smazání</th>
+        <th>Změna</th>
+        </thead>
+        <tbody>
 
-     <tr th:each=" ticket : ${tickets}">
+        <tr th:each=" ticket : ${tickets}">
 
-         <td><span class="ticketProps" th:text="${ticket.getMovie()}"> Název </span></td>
-         <td><span class="ticketProps"th:text="${ticket.getLanguage()}"> Jazyk </span></td>
-         <td><span class="ticketProps" th:text="${ticket.getNumberOfSeats()}"> Počet míst </span></td>
-         <td><span class="ticketProps" th:text="${ticket.getHall()}"> Sál </span></td>
-         <form method="post" th:action="@{/deleteTicket}" th:object="${ticket}">
-             <input name="id" th:value="${ticket.getId()}" type="hidden"/>
-             <input name="movie" th:value="${ticket.getMovie()}" type="hidden">
-             <input name="language" th:value="${ticket.getLanguage()}" type="hidden">
-             <input name="numberOfSeats" th:value="${ticket.getNumberOfSeats()}" type="hidden">
-             <input name="hall" th:value="${ticket.getHall()}" type="hidden">
-             <td ><button type="submit" class="button_a" >Smazat</button></td>
-         </form>
+            <td><span class="ticketProps" th:text="${ticket.getMovie()}"> Název </span></td>
+            <td><span class="ticketProps" th:text="${ticket.getLanguage()}"> Jazyk </span></td>
+            <td><span class="ticketProps" th:text="${ticket.getNumberOfSeats()}"> Počet míst </span></td>
+            <td><span class="ticketProps" th:text="${ticket.getHall()}"> Sál </span></td>
+            <form method="post" th:action="@{/deleteTicket}" th:object="${ticket}">
+                <input name="id" th:value="${ticket.getId()}" type="hidden"/>
+                <input name="movie" th:value="${ticket.getMovie()}" type="hidden">
+                <input name="language" th:value="${ticket.getLanguage()}" type="hidden">
+                <input name="numberOfSeats" th:value="${ticket.getNumberOfSeats()}" type="hidden">
+                <input name="hall" th:value="${ticket.getHall()}" type="hidden">
+                <td>
+                    <button type="submit" class="button_a">Smazat</button>
+                </td>
+            </form>
 
-         <form th:action="@{/editTicket}" th:object="${ticket}">
-             <input name="id" th:value="${ticket.getId()}" type="hidden"/>
-             <input name="movie" th:value="${ticket.getMovie()}" type="hidden">
-             <input name="language" th:value="${ticket.getLanguage()}" type="hidden">
-             <input name="hall" th:value="${ticket.getHall()}" type="hidden">
-             <td ><button class="button_a" >Změnit</button></td>
-         </form>
+            <form th:action="@{/editTicket}" th:object="${ticket}">
+                <input name="id" th:value="${ticket.getId()}" type="hidden"/>
+                <input name="movie" th:value="${ticket.getMovie()}" type="hidden">
+                <input name="language" th:value="${ticket.getLanguage()}" type="hidden">
+                <input name="hall" th:value="${ticket.getHall()}" type="hidden">
+                <td>
+                    <button class="button_a">Změnit</button>
+                </td>
+            </form>
 
-     </tr>
-     </tbody>
- </table>
+        </tr>
+        </tbody>
+    </table>
 </div>
-<div id="deleteAllButton" >
+<div id="deleteAllButton">
     <form method="post" th:action="@{/deleteAllTickets}">
-    <button class="button_a" type="submit">Smazat Vse</button>
+        <button class="button_a" type="submit">Smazat Vse</button>
     </form>
 </div>
 
- </body>
- </html>
+</body>
+</html>

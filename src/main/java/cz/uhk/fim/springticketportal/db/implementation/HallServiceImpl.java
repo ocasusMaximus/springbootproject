@@ -45,11 +45,12 @@ public class HallServiceImpl implements HallService {
     public List<Hall> loadAllHalls() {
         return hallRepository.findAll();
     }
+
     @Override
     public int getIdOfHall(Ticket ticket) {
         int idOfHall = 0;
-        for(Hall hall :loadAllHalls()){
-            if(hall.getName().equals(ticket.getHall())){
+        for (Hall hall : loadAllHalls()) {
+            if (hall.getName().equals(ticket.getHall())) {
                 idOfHall = hall.getId();
             }
         }
